@@ -1,3 +1,4 @@
+import { useRouter } from 'next/router';
 import Link from 'next/link';
 import '@/app/globals.css'
 import { FaLocationDot } from "react-icons/fa6";
@@ -8,6 +9,8 @@ import { GiIsland } from "react-icons/gi";
 import { LiaHotelSolid } from "react-icons/lia";
 
 export default function TravelSearch() {
+  const router = useRouter();
+
   return (
     <div className="bg-gray-100 min-h-screen">
       {/* Navbar */}
@@ -40,7 +43,7 @@ export default function TravelSearch() {
           <div className="flex flex-col sm:flex-row sm:space-x-8 border-b pb-2 mb-4 text-gray-800">
             <button className="font-bold border-b-2 border-blue-500 pb-2 flex items-center">
                <MdFlight/>Flights</button>
-            <button className='flex items-center'><GiIsland/> Packages</button>
+            <button className='flex items-center' onClick={() => router.push('/Packages')}><GiIsland/> Packages</button>
             <button className='flex items-center'><LiaHotelSolid /> Hotels</button>
             {/* <button>Cars</button> */}
           </div>
