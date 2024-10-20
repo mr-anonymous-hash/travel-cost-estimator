@@ -119,8 +119,6 @@ const AdminDashboard = () => {
                 return (
                     <>
                         <input name="pickupLocation" value={formData.pickupLocation || ''} onChange={handleInputChange} placeholder="Pickup Location" className="mb-2 w-full p-2 border rounded" required />
-                        <input name="pickupDate" type="date" value={formData.pickupDate || ''} onChange={handleInputChange} className="mb-2 w-full p-2 border rounded" required />
-                        <input name="dropOffDate" type="date" value={formData.dropOffDate || ''} onChange={handleInputChange} className="mb-2 w-full p-2 border rounded" required />
                         <input name="dailyRate" type="number" step="0.01" value={formData.dailyRate || ''} onChange={handleInputChange} placeholder="Daily Rate" className="mb-2 w-full p-2 border rounded" required />
                         <input name="carModel" value={formData.carModel || ''} onChange={handleInputChange} placeholder="Car Model" className="mb-2 w-full p-2 border rounded" required />
                         <select name="carType" value={formData.carType || ''} onChange={handleInputChange} className="mb-2 w-full p-2 border rounded" required>
@@ -187,7 +185,7 @@ const AdminDashboard = () => {
                             <h3>Total Hotels</h3>
                             <p className="text-2xl font-bold">{stats.hotel_count}</p>
                         </div>
-                        <div className="bg-yellow-400 p-4 rounded text-white">
+                        <div className="bg-gray-400 p-4 rounded text-white">
                             <h3>Total Cars</h3>
                             <p className="text-2xl font-bold">{stats.car_count}</p>
                         </div>
@@ -196,19 +194,19 @@ const AdminDashboard = () => {
                     {/* Tab buttons */}
                     <div className="flex space-x-4">
                         <button
-                            className={`px-4 py-2 rounded ${activeTab === 'flight' ? 'bg-blue-500 text-white' : 'bg-gray-200'}`}
+                            className={`px-4 py-2 rounded ${activeTab === 'flight' ? 'bg-blue-500 text-white' : 'bg-gray-200 text-black'}`}
                             onClick={() => setActiveTab('flight')}
                         >
                             Flights
                         </button>
                         <button
-                            className={`px-4 py-2 rounded ${activeTab === 'hotels' ? 'bg-blue-500 text-white' : 'bg-gray-200'}`}
+                            className={`px-4 py-2 rounded ${activeTab === 'hotels' ? 'bg-blue-500 text-white' : 'bg-gray-200 text-black'}`}
                             onClick={() => setActiveTab('hotels')}
                         >
                             Hotels
                         </button>
                         <button
-                            className={`px-4 py-2 rounded ${activeTab === 'cars' ? 'bg-blue-500 text-white' : 'bg-gray-200'}`}
+                            className={`px-4 py-2 rounded ${activeTab === 'cars' ? 'bg-blue-500 text-white' : 'bg-gray-200 text-black'}`}
                             onClick={() => setActiveTab('cars')}
                         >
                             Cars

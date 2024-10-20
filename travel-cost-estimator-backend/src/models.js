@@ -102,11 +102,11 @@ const CarRental = sequelize.define('CarRental', {
   },
   pickupDate: {
     type: DataTypes.DATE,
-    allowNull: false
+    allowNull: true
   },
   dropOffDate: {
     type: DataTypes.DATE,
-    allowNull: false
+    allowNull: true
   },
   dailyRate: {
     type: DataTypes.DECIMAL(10, 2),
@@ -147,7 +147,7 @@ const Hotel = sequelize.define('Hotel', {
     allowNull: true
   },
   nightlyRate: {
-    type: DataTypes.DECIMAL(10, 2),
+    type: DataTypes.INTEGER,
     allowNull: false
   },
   // Added fields
@@ -165,6 +165,7 @@ const Hotel = sequelize.define('Hotel', {
   },
   amenities: {
     type: DataTypes.JSON,
+    allowNull:true,
     defaultValue: []
   },
   availableRooms: {

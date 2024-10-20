@@ -11,6 +11,17 @@ router.get('/', async (req, res) => {
     }
   });
 
+router.post('/', async(req, res)=>{
+    const { pickupLocation,dailyRate,carModel, carType,insuranceRate } = req.body;
+    const data = { pickupLocation,dailyRate,carModel, carType,insuranceRate }
+    try{
+      const car = CarRental.create(data)
+      res.json({success:true, data:car})
+    }catch(error){
+      res.status(500).json({success:false, error:error.message})
+    }
+})
+
 router.get('/rentals', async (req, res) => {
     const { pickupLocation, pickupDate, dropOffDate } = req.query;
     
