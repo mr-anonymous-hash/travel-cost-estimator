@@ -14,7 +14,7 @@ const Welcome = () => {
     style={{backgroundImage: 'url(http://localhost:8000/image/travel.jpg)',
         backgroundSize: 'cover',
         backgroundPosition: 'center' }} >
-      <Navbar bg={true}/>
+      <Navbar bg={false}/>
       <div className="flex flex-col items-center justify-center flex-grow p-4">
         <div className="bg-white bg-opacity-5 backdrop-blur-md border border-gray-300 rounded-lg shadow-lg p-8 max-w-[750px]">
           <h1 className="text-4xl font-bold mb-6 text-center text-black">

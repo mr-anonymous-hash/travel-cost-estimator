@@ -1,3 +1,4 @@
+import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { FaRegCircleUser } from 'react-icons/fa6'
@@ -5,6 +6,7 @@ import { FaRegCircleUser } from 'react-icons/fa6'
 const Navbar = ({bg}) => {
   const bgClass = bg === true ? 'bg-blue-900' : 'bg-transparent';
   const textcolor = bg === true ? 'text-white' : 'text-black';
+  const router = useRouter();
   const [islogged, setislogged] = useState(false)
 
   useEffect(() => {
@@ -27,9 +29,16 @@ const Navbar = ({bg}) => {
           <div className="flex space-x-6 items-center">
             {/* <Link href="/help" className="hover:underline">Help</Link> */}
             {
-              !islogged && (
+              !islogged ? (
                 <Link href="/login" className="hover:underline flex items-center"><FaRegCircleUser className='mr-1'/>Sign In</Link>
-              )
+              ) : (<div>
+                <button className='text-lg  hover:text-red-500 font-semibold'
+                onClick={()=>{
+                  localStorage.removeItem('token');
+                  setislogged(false);
+                  router.push('/Home')
+                }}>logout</button>
+              </div>)
             }
           </div>
         </div>

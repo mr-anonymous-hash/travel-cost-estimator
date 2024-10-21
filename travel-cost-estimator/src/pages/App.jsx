@@ -90,6 +90,12 @@ const TravelBookingSystem = () => {
     fetchData();
   }, []);
 
+  useEffect(()=>{
+    const token = localStorage.getItem('token')
+    if(!token){
+      window.location.href = '/login'
+    }
+  },[])
   const handleFlightSearch = () => {
     const matchingFlight = options.flights.find(flight => 
       flight.departureAirport === flightDetails.departureAirport &&

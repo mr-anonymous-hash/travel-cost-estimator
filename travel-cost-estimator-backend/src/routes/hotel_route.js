@@ -12,16 +12,16 @@ router.get('/', async (req, res) => {
   });
 
 
-  router.post('/', async (req, res) => {
-    const { name, city, checkInDate, checkOutDate } = req.body;
+  // router.post('/', async (req, res) => {
+  //   const { name, city, checkInDate, checkOutDate } = req.body;
 
-    try {
-      const hotel = await Hotel.create({ name, city, checkInDate, checkOutDate });
-      res.status(201).json({ success: true, data: hotel });
-    } catch (error) {
-      res.status(500).json({ success: false, error: error.message });
-    }
-  });
+  //   try {
+  //     const hotel = await Hotel.create({ name, city, checkInDate, checkOutDate });
+  //     res.status(201).json({ success: true, data: hotel });
+  //   } catch (error) {
+  //     res.status(500).json({ success: false, error: error.message });
+  //   }
+  // });
 
   router.get('/:id', async (req, res) => {
     const { id } = req.params;

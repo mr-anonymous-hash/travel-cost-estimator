@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Plus, Edit, X } from 'lucide-react';
 import './../app/globals.css'
+import { useRouter } from 'next/router';
 
 const AdminDashboard = () => {
     // Previous state declarations remain the same...
@@ -15,6 +16,7 @@ const AdminDashboard = () => {
     const [formData, setFormData] = useState({});
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
+    const router = useRouter()
 
     // Previous useEffect and fetch functions remain the same...
     useEffect(() => {
@@ -22,6 +24,12 @@ const AdminDashboard = () => {
         fetchItems();
     }, [activeTab]);
 
+    useEffect(()=>{
+        const token = localStorage.getItem('token')
+        if(!token){
+            window.location.href = '/Home'
+        }
+    },[])
     const fetchStats = async () => {
         try {
             const response = await fetch('http://localhost:8000/api/stats');
@@ -174,7 +182,15 @@ const AdminDashboard = () => {
 
                 {/* Dashboard header and stats */}
                 <div className="mb-6">
+                    <div className='flex justify-between  items-center'>
                     <h1 className="text-2xl font-bold mb-4 text-slate-800">Admin Dashboard</h1>
+                    <button className='text-2xl font-semibold text-slate-800 hover:text-red-500'
+                    onClick={()=>{
+                        localStorage.removeItem('user')
+                        localStorage.removeItem('token')
+                        router.push('Home')}}
+                    >Logout</button>
+                    </div>
 
                     <div className="grid grid-cols-3 gap-4 mb-6">
                         <div className="bg-blue-400 p-4 rounded text-white">
